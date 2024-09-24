@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      .navbar-brand {
+        font-size: large;
+        font-weight: 200;
+        color: aliceblue;
+      }
+      span {
+        color: #3e885b;
+      }
+      .navbar.custom-navbar {
+        background-color: #15191e;
+        border-radius: 10px;
+      }
+      .navbar-nav {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+      }
+      .navbar-nav .nav-item {
+        margin: 0 0.5rem;
+      }
+      .navbar-nav .nav-link {
+        color: #f5f5f5;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        vertical-align: middle;
+        transition: color 0.3s ease;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #3e885b;
+        text-decoration: none;
+      }
+      .bg-image {
+        background-image: url("./images/pc-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+      }
+      .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      }
+      .content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+      }
+      .home-screen {
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: calc(100vh - 150px);
+      }
+      .home-screen > div {
+        text-align: start;
+      }
+      .home-screen h2 {
+        color: white;
+      }
+      .home-screen p {
+        font-size: 1.25rem;
+        color: whitesmoke;
+        text-align: start;
+      }
+      .home-screen .btn-primary {
+        background-color: #3e885b;
+        border-color: #3e885b;
+      }
+      .home-screen .btn-primary:hover {
+        background-color: white;
+        color: black;
+        border-color: #3e885b;
+      }
+      .container-fluid {
+        z-index: 10;
+        position: relative;
+        padding: 0;
+        margin: 0;
+      }
+
+      .about-section, .services-section, .skills-section, .portfolio-section, .contact-section {
+        padding: 50px 0;
+      }
+      .services-section .service-box {
+        text-align: center;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+      }
+      .services-section .service-box:hover {
+        background-color: #3e885b;
+        color: white;
+      }
+      .section-title h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+      }
+      .project-card img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+      .project-info {
+        padding: 15px;
+        text-align: center;
+      }
+      .project-info h3 {
+        font-size: 1.5rem;
+        color: #15191e;
+      }
+      .project-info p {
+        font-size: 1rem;
+        color: #555;
+        margin: 10px 0;
+      }
+      .project-info .btn-primary {
+        background-color: #3e885b;
+        border-color: #3e885b;
+        margin-top: 10px;
+      }
+      .project-info .btn-primary:hover {
+        background-color: white;
+        color: black;
+        border-color: #3e885b;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-nav .nav-link {
+          font-size: 0.875rem;
+          padding: 0.25rem 0.5rem;
+        }
+      }
+      .container-skills{
+        width: 50%;
+      }
+
+      .contact-section form .form-control {
+        margin-bottom: 20px;
+      }
+    </style>
+
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div class="bg-image">
+      <div class="bg-overlay"></div>
+      <div class="content">
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <span>< N</span>ivedha<span>/></span>
+            </a>
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbar-collapse-toggle"
+            >
+              <ul class="navbar-nav mx-auto">
+                <li><a class="nav-link" aria-current="page" href="#about">About</a></li>
+                <li><a class="nav-link" aria-current="page" href="#services">Services</a></li>
+                <li><a class="nav-link" aria-current="page" href="#skills">Skills</a></li>
+                <li><a class="nav-link" aria-current="page" href="#portfolio">Projects</a></li>
+              </ul>
+            </div>
+            <div class="ms-auto d-none d-lg-block">
+              <a href="#contactnow"> Contact Now</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-toggle" aria-controls="navbar-collapse-toggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="home-screen" id="about">
+          <div>
+            <h2>Hello, I'm a Front end Developer</h2>
+            <p>
+              Font of creating web application designs and bringing them to life using code & developing mobile designs.
+            </p>
+            <a href="/images/Nivedha E_Profile.pdf" target="_blank" class="btn btn-primary btn-md">Download CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <!-- <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+        </div>
+        <p>Hello! I'm Nivedha, a front-end developer with a passion for crafting responsive and engaging websites.</p>
+      </div>
+    </section> -->
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Services</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="service-box">
+              <h3>Web Development</h3>
+              <p>Building responsive websites with clean and optimized code.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <h3>UI/UX Design</h3>
+              <p>Designing user-friendly interfaces with great user experience.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-box">
+              <h3>Mobile App Development</h3>
+              <p>Developing mobile applications with intuitive design and performance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Skills Section with Progress Bars -->
+   <!-- Skills Section with Progress Bars and Image -->
+<section id="skills" class="skills-section">
+  <div class="container">
+      <div class="section-title">
+          <h2>Skills</h2>
+      </div>
+      <div class="row align-items-center"> <!-- Align items vertically centered -->
+          <!-- Skills Column -->
+          <div class="col-md-6">
+              <div class="mb-3">
+                  <h5>HTML5, CSS3</h5>
+                  <div class="progress">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 90%"
+                          aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <h5>JavaScript</h5>
+                  <div class="progress">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <h5>ReactJS</h5>
+                  <div class="progress">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 85%"
+                          aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                  </div>
+              </div>
+              <div class="mb-3">
+                <h5>Bootstrap, Tailwind CSS</h5>
+                <div class="progress">
+                    <div class="progress-bar " role="progressbar" style="width: 85%"
+                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                </div>
+            </div>
+            <div class="mb-3">
+              <h5>GitHub,Git</h5>
+              <div class="progress">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 85%"
+                      aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+              </div>
+          </div>
+          </div>
+
+          <!-- Image Column -->
+          <div class="col-md-6">
+              <img src="./images/skills.jpg" alt="Skills Illustration" class="img-fluid" />
+          </div>
+      </div>
+  </div>
+</section>
+
+
+    <!-- Projects Section -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+        </div>
+        <div class="row">
+          <!-- Project 1 -->
+          <div class="col-md-4 portfolio-item">
+            <div class="project-card">
+              <img src="./images//p-1.png" alt="Project 1" />
+              <div class="project-info">
+                <h3>Travel Guide</h3>
+                <p> Discover story-worthy travel moments.</p>
+                <a href="https://nivedhae.github.io/TravelGuide/" target="_blank" class="btn btn-primary">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="col-md-4 portfolio-item">
+            <div class="project-card">
+              <img src="./images//p-2.png" alt="Project 2" />
+              <div class="project-info">
+                <h3>Music</h3>
+                <p>Enhance the experience of music worldwide.</p>
+                <a href="https://nivedhae.github.io/music/" target="_blank" class="btn btn-primary">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="col-md-4 portfolio-item">
+            <div class="project-card">
+              <img src="/images/p-3.png" alt="Project 3" />
+              <div class="project-info">
+                <h3>Giggles Tales</h3>
+                <p>End your day with a smile and a chuckle!
+                  </p>
+                <a href="https://nivedhae.github.io/giggletales/" target="_blank" class="btn btn-primary">View on GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contactnow" class="contact-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Me</h2>
+        </div>
+        <form>
+          <input type="text" class="form-control" placeholder="Your Name" required />
+          <input type="email" class="form-control" placeholder="Your Email" required />
+          <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76A3fVHoqbM1sC0ik4EpAylWON2J4dEN2zDlaM7AUwmuRQl2EN4IhJ5kBiA6Ahu"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
